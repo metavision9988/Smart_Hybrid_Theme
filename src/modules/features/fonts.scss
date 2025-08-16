@@ -1,0 +1,18 @@
+// 폰트 시스템
+.font-korean {
+  --font-ui: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  --font-text: 'Noto Sans KR', sans-serif;
+  --font-code: 'D2Coding', 'JetBrains Mono', monospace;
+}
+
+.font-english {
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-text: 'Inter', 'Roboto', sans-serif;
+  --font-code: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.font-mixed {
+  --font-ui: 'Inter', 'Pretendard', sans-serif;
+  --font-text: 'Inter', 'Noto Sans KR', sans-serif;
+  --font-code: 'JetBrains Mono', 'D2Coding', monospace;
+}

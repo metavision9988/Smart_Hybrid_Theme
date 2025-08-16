@@ -1,0 +1,88 @@
+// 체크박스 스타일
+.custom-checkboxes {
+  .markdown-preview-view,
+  .markdown-source-view {
+    // 기본 체크박스
+    input[type="checkbox"] {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 3px;
+      border: 2px solid var(--text-muted);
+      margin-right: 6px;
+      position: relative;
+      
+      &:checked {
+        background: var(--primary);
+        border-color: var(--primary);
+        
+        &::after {
+          content: "✓";
+          color: white;
+          font-size: 12px;
+          position: absolute;
+          left: 1px;
+          top: -2px;
+        }
+      }
+    }
+    
+    // 특수 체크박스
+    li[data-task="x"] input[type="checkbox"] {
+      background: var(--color-green-500);
+      border-color: var(--color-green-500);
+      
+      &::after {
+        content: "✓";
+      }
+    }
+    
+    li[data-task="-"] input[type="checkbox"] {
+      background: var(--text-muted);
+      border-color: var(--text-muted);
+      
+      &::after {
+        content: "–";
+      }
+    }
+    
+    li[data-task="!"] input[type="checkbox"] {
+      background: var(--error);
+      border-color: var(--error);
+      
+      &::after {
+        content: "!";
+        font-weight: bold;
+      }
+    }
+    
+    li[data-task="?"] input[type="checkbox"] {
+      background: var(--warning);
+      border-color: var(--warning);
+      
+      &::after {
+        content: "?";
+      }
+    }
+    
+    li[data-task="*"] input[type="checkbox"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      
+      &::after {
+        content: "★";
+        font-size: 10px;
+      }
+    }
+    
+    li[data-task="i"] input[type="checkbox"] {
+      background: var(--color-blue-500);
+      border-color: var(--color-blue-500);
+      
+      &::after {
+        content: "💡";
+        font-size: 10px;
+      }
+    }
+  }
+}

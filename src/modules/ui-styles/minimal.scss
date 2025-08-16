@@ -1,0 +1,109 @@
+@import '../../core/mixins';
+
+.ui-minimal {
+  // 미니멀 원칙: 제거와 단순화
+  --minimal-border: 1px solid transparent;
+  --minimal-radius: 0;
+  --minimal-shadow: none;
+  
+  // UI 요소 숨기기
+  .workspace-ribbon,
+  .status-bar {
+    display: none;
+  }
+  
+  // 탭 심플화
+  .workspace-tab-header {
+    border: none;
+    background: transparent;
+    
+    .workspace-tab-header-inner-title {
+      font-weight: 300;
+      font-size: var(--font-size-sm);
+    }
+    
+    .workspace-tab-header-inner-icon {
+      display: none;
+    }
+  }
+  
+  // 사이드바 심플화
+  .workspace-split.mod-left-split,
+  .workspace-split.mod-right-split {
+    border: none;
+    
+    .workspace-leaf-content {
+      background: transparent;
+      padding: var(--spacing-lg);
+    }
+  }
+  
+  // 파일 탐색기 심플화
+  .nav-folder-title,
+  .nav-file-title {
+    border: none;
+    padding: var(--spacing-xs) 0;
+    
+    &:hover {
+      background: none;
+      color: var(--primary);
+    }
+    
+    &.is-active {
+      background: none;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    // 아이콘 제거
+    .nav-folder-collapse-indicator,
+    .nav-file-tag {
+      display: none;
+    }
+  }
+  
+  // 에디터 포커스
+  .markdown-source-view,
+  .markdown-preview-view {
+    padding: var(--spacing-2xl);
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  
+  // 헤더 심플화
+  .view-header {
+    background: transparent;
+    border: none;
+    padding: var(--spacing-md) 0;
+    
+    .view-header-title {
+      font-weight: 300;
+      text-align: center;
+    }
+    
+    .view-actions {
+      display: none;
+    }
+  }
+  
+  // 스크롤바 최소화
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--text-faint);
+  }
+  
+  // 포커스 제거
+  *:focus {
+    outline: none;
+  }
+  
+  // 애니메이션 제거
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,75 @@
+@import '../../core/mixins';
+
+.persona-developer {
+  // 개발자 색상 팔레트
+  --primary: #00695C;
+  --secondary: #00ACC1;
+  --accent: #FF9800;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --error: #F44336;
+  
+  // VS Code 스타일 배경
+  --background-primary: #1E1E1E;
+  --background-secondary: #252526;
+  --background-tertiary: #2D2D30;
+  
+  // 텍스트 색상
+  --text-normal: #D4D4D4;
+  --text-muted: #858585;
+  --text-faint: #4A4A4A;
+  
+  // 코드 폰트 우선
+  --font-text: var(--font-code);
+  
+  // 코드 블록 스타일링
+  .HyperMD-codeblock,
+  .markdown-preview-view pre {
+    background: var(--background-tertiary);
+    border-left: 3px solid var(--accent);
+    padding: var(--spacing-md);
+    
+    // 신택스 하이라이팅 시뮬레이션
+    .token {
+      &.keyword { color: #569CD6; }
+      &.string { color: #CE9178; }
+      &.comment { color: #6A9955; }
+      &.function { color: #DCDCAA; }
+      &.number { color: #B5CEA8; }
+    }
+  }
+  
+  // 인라인 코드
+  code:not(pre code) {
+    background: rgba(0, 105, 92, 0.2);
+    color: var(--accent);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  
+  // 파일 타입별 아이콘
+  .nav-file-title {
+    &[data-path$=".js"]::before { content: "📜 "; color: #F7DF1E; }
+    &[data-path$=".ts"]::before { content: "🔷 "; color: #3178C6; }
+    &[data-path$=".py"]::before { content: "🐍 "; color: #3776AB; }
+    &[data-path$=".css"]::before { content: "🎨 "; color: #1572B6; }
+    &[data-path$=".html"]::before { content: "🌐 "; color: #E34C26; }
+    &[data-path$=".json"]::before { content: "📋 "; color: #000000; }
+    &[data-path$=".md"]::before { content: "📝 "; }
+  }
+  
+  // 터미널 스타일 프롬프트
+  .terminal-prompt::before {
+    content: "$ ";
+    color: var(--success);
+    font-weight: bold;
+  }
+  
+  // 깃 상태 표시
+  .nav-file-title {
+    &.git-modified::after { content: " M"; color: var(--warning); }
+    &.git-added::after { content: " A"; color: var(--success); }
+    &.git-deleted::after { content: " D"; color: var(--error); }
+  }
+}

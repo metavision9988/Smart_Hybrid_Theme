@@ -1,0 +1,132 @@
+@import '../../core/mixins';
+
+.persona-designer {
+  // 크리에이티브 색상
+  --primary: #9C27B0;
+  --secondary: #EC407A;
+  --accent: #00BCD4;
+  --highlight: #FFEB3B;
+  
+  // 깨끗한 배경
+  --background-primary: #FAFAFA;
+  --background-secondary: #FFFFFF;
+  
+  // 모던 폰트
+  --font-ui: 'Inter', 'Pretendard', -apple-system, sans-serif;
+  --font-text: 'Inter', sans-serif;
+  
+  // 황금비 그리드
+  .markdown-preview-view {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+    
+    > * {
+      grid-column: span 12;
+    }
+    
+    // 이미지 레이아웃
+    .image-embed {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transition: transform var(--transition-base);
+      
+      &:hover {
+        transform: scale(1.02);
+      }
+      
+      // 크기별 그리드
+      &.small { grid-column: span 4; }
+      &.medium { grid-column: span 6; }
+      &.large { grid-column: span 8; }
+      &.full { grid-column: span 12; }
+    }
+  }
+  
+  // 이미지 갤러리 모드
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-slow);
+      }
+      
+      &:hover img {
+        transform: scale(1.1);
+      }
+      
+      // 오버레이 정보
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: var(--spacing-sm);
+        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        color: white;
+        transform: translateY(100%);
+        transition: transform var(--transition-base);
+      }
+      
+      &:hover .overlay {
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  // 컬러 팔레트
+  .color-palette {
+    display: flex;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    
+    .color-swatch {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: transform var(--transition-fast);
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+      
+      &::after {
+        content: attr(data-color);
+        display: block;
+        text-align: center;
+        font-size: var(--font-size-xs);
+        margin-top: var(--spacing-xs);
+      }
+    }
+  }
+  
+  // 디자인 노트 스타일
+  .design-note {
+    background: var(--background-secondary);
+    border-left: 4px solid var(--primary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    
+    &.idea { border-color: var(--highlight); }
+    &.important { border-color: var(--secondary); }
+    &.reference { border-color: var(--accent); }
+  }
+}

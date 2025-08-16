@@ -1,0 +1,49 @@
+// 유용한 믹스인 모음
+
+// 글래스 효과
+@mixin glass-effect($blur: 10px, $opacity: 0.1) {
+  backdrop-filter: blur($blur);
+  background: rgba(255, 255, 255, $opacity);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+// 그라디언트
+@mixin gradient($start, $end, $angle: 135deg) {
+  background: linear-gradient($angle, $start, $end);
+}
+
+// 텍스트 말줄임
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 중앙 정렬
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 스크롤바 스타일
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: var(--background-secondary);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: var(--radius-sm);
+    
+    &:hover {
+      background: var(--text-normal);
+    }
+  }
+}

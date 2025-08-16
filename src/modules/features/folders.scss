@@ -1,0 +1,41 @@
+// 폴더별 스타일링
+.nav-folder {
+  &[data-path*="Work"],
+  &[data-path*="Projects"],
+  &[data-path*="Dev"] {
+    .nav-folder-title {
+      color: #00695C;
+      
+      &::before {
+        content: "💻 ";
+        margin-right: 4px;
+      }
+    }
+  }
+  
+  &[data-path*="Writing"],
+  &[data-path*="Journal"],
+  &[data-path*="Notes"] {
+    .nav-folder-title {
+      color: #6D4C41;
+      
+      &::before {
+        content: "✍️ ";
+        margin-right: 4px;
+      }
+    }
+  }
+  
+  &[data-path*="Design"],
+  &[data-path*="Creative"],
+  &[data-path*="Art"] {
+    .nav-folder-title {
+      color: #9C27B0;
+      
+      &::before {
+        content: "🎨 ";
+        margin-right: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "smart-hybrid-theme",
+  "name": "Smart Hybrid Theme",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Context-aware intelligent theme system with personas and modern UI styles",
+  "author": "Your Name",
+  "authorUrl": "https://github.com/yourusername",
+  "fundingUrl": "https://buymeacoffee.com/yourname",
+  "isDesktopOnly": false
+}

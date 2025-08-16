@@ -1,0 +1,95 @@
+@import '../../core/mixins';
+
+.ui-glassmorphism {
+  // 글래스 효과 변수
+  --glass-blur: 10px;
+  --glass-opacity: 0.1;
+  --glass-border-opacity: 0.2;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  // 전역 글래스 효과
+  .workspace-leaf,
+  .modal,
+  .suggestion-container,
+  .popover {
+    @include glass-effect(var(--glass-blur), var(--glass-opacity));
+  }
+  
+  // 사이드바
+  .workspace-split.mod-left-split,
+  .workspace-split.mod-right-split {
+    .workspace-leaf-content {
+      @include glass-effect(15px, 0.05);
+    }
+  }
+  
+  // 네비게이션 아이템
+  .nav-folder-title,
+  .nav-file-title {
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 2px;
+    border-radius: var(--radius-sm);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    &.is-active {
+      background: rgba(var(--primary-rgb), 0.2);
+      backdrop-filter: blur(10px);
+    }
+  }
+  
+  // 헤더
+  .view-header {
+    @include glass-effect(20px, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .view-header-title-container {
+      backdrop-filter: none;
+    }
+  }
+  
+  // 탭
+  .workspace-tab-header {
+    @include glass-effect(10px, 0.08);
+    
+    .workspace-tab-header-inner {
+      background: transparent;
+    }
+  }
+  
+  // 모달 & 팝업
+  .modal-container {
+    backdrop-filter: blur(5px);
+    
+    .modal {
+      @include glass-effect(30px, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  // 제안 메뉴
+  .suggestion-container {
+    @include glass-effect(15px, 0.95);
+    
+    .suggestion-item {
+      background: transparent;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      
+      &.is-selected {
+        background: rgba(var(--primary-rgb), 0.2);
+      }
+    }
+  }
+  
+  // 스크롤바
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+  }
+}
